@@ -8,7 +8,7 @@ fun main() {
     println(star2())
 }
 
-fun star1(): Int {
+private fun star1(): Int {
     var max = 0;
     for (boardingPass in boardingPasses) {
         val seatId = seatId(boardingPass);
@@ -19,7 +19,7 @@ fun star1(): Int {
     return max;
 }
 
-fun star2(): Int {
+private fun star2(): Int {
     val seatIds = mutableListOf<Int>();
     for (boardingPass in boardingPasses) {
         seatIds.add(seatId(boardingPass))
