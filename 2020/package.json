@@ -4,7 +4,8 @@
   "description": "Solutions to https://adventofcode.com/2020 Execute with `npm install && npm run dec07`",
   "scripts": {
     "dec07": "npx ts-node december07.ts",
-    "dec08": "npx ts-node december08.ts"
+    "dec08": "npx ts-node december08.ts",
+    "dec12": "npx ts-node december12.ts"
   },
   "repository": {
     "type": "git",
