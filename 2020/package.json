@@ -5,7 +5,8 @@
   "scripts": {
     "dec07": "npx ts-node december07.ts",
     "dec08": "npx ts-node december08.ts",
-    "dec12": "npx ts-node december12.ts"
+    "dec12": "npx ts-node december12.ts",
+    "dec13": "npx ts-node december13.ts"
   },
   "repository": {
     "type": "git",
