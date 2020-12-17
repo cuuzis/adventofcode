@@ -1,14 +1,15 @@
-package solutions2020
-
 import java.io.File
 
+/**
+ * https://adventofcode.com/2020/day/6
+ */
 fun main() {
-    println(star1())
-    println(star2())
+    println(star1()) // 6391
+    println(star2()) // 3042
 }
 
 private fun input(): List<String> {
-    return File("src/solutions2020/december06.txt").readLines();
+    return File("2020/december06.txt").readLines();
 }
 
 private fun star1(): Int {

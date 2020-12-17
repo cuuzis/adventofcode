@@ -1,32 +1,33 @@
 import { readFileSync } from 'fs';
 
-
+/**
+ * https://adventofcode.com/2020/day/7
+ */
 const input = readFileSync('./december07.txt', 'utf-8');
 
-console.log(star1());
-console.log(star2());
+console.log(star1()); // 115
+console.log(star2()); // 1250
 
 
 interface Bag {
     type: string;
     colour: string;
-    amount?: number;
+    amount: number;
 }
-
 
 
 function star1() {
     const parentBagsByKey: {[key: string]: Bag[]} = {};
     for (const line of input.split(/\r?\n/)) {
         const words = line.split(' ');
-        const parentBag: Bag = {type: words[0], colour: words[1]};
+        const parentBag: Bag = {type: words[0], colour: words[1], amount: 1};
         if (words[4] === 'no') {
             // contain no other bags
         } else {
             let i = 4;
             while (i < words.length) {
                 const numberOfChildBags: number = Number(words[i]);
-                const childBag: Bag = {type: words[i + 1], colour: words[i + 2] }
+                const childBag: Bag = {type: words[i + 1], colour: words[i + 2], amount: 1 }
                 addParent(childBag, parentBag);
                 i += 4;
             }
@@ -61,7 +62,7 @@ function star2() {
     const childBagsByKey: {[key: string]: Bag[]} = {};
     for (const line of input.split(/\r?\n/)) {
         const words = line.split(' ');
-        const parentBag: Bag = {type: words[0], colour: words[1]};
+        const parentBag: Bag = {type: words[0], colour: words[1], amount: 1};
         if (words[4] === 'no') {
             // contain no other bags
         } else {

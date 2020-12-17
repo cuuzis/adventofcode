@@ -1,15 +1,16 @@
-package solutions2020
-
 import java.io.File
 
+/**
+ * https://adventofcode.com/2020/day/9
+ */
 fun main() {
     val weakNumber = star1()
-    println(weakNumber)
-    println(star2(weakNumber))
+    println(weakNumber)         // 85848519
+    println(star2(weakNumber))  // 13414198
 }
 
 private fun input(): List<String> {
-    return File("src/solutions2020/december09.txt").readLines();
+    return File("2020/december09.txt").readLines();
 }
 
 

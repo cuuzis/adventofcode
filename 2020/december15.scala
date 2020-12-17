@@ -1,14 +1,15 @@
-package solutions2020
-
 import scala.annotation.tailrec
 import scala.io.Source
 
+/**
+ * https://adventofcode.com/2020/day/15
+ */
 object december15 {
   private val input = Array(2,20,0,4,1,17)
 
   def main(args: Array[String]) {
-    println(time(star1()))
-    println(time(star2()))
+    println(time(star1())) // 758
+    println(time(star2())) // 814
   }
 
   private def star1(): Any = star(2020)

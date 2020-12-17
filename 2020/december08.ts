@@ -1,10 +1,12 @@
 import { readFileSync } from 'fs';
 
-
+/**
+ * https://adventofcode.com/2020/day/8
+ */
 const input = readFileSync('./december08.txt', 'utf-8');
 
-console.log(star1());
-console.log(star2());
+console.log(star1()); // 1818
+console.log(star2()); // 631
 
 
 function star1() {

@@ -1,14 +1,15 @@
-package solutions2020
-
 import java.io.File
 
+/**
+ * https://adventofcode.com/2020/day/10
+ */
 fun main() {
-    println(star1())
-    println(star2())
+    println(star1()) // 1998
+    println(star2()) // 347250213298688
 }
 
 private fun input(): List<String> {
-    return File("src/solutions2020/december10.txt").readLines();
+    return File("2020/december10.txt").readLines();
 }
 
 private fun star1(): Int {
@@ -27,8 +28,7 @@ private fun star1(): Int {
     // your device's built-in adapter is always 3 higher than the highest adapter
     threes++
 
-    println(ones)
-    println(threes)
+    //println("${ones} * ${threes}")
     return ones * threes
 }
 

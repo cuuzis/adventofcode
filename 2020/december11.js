@@ -3,8 +3,8 @@
 // 2. paste code in console
 
 
-console.log(star1());
-console.log(star2());
+console.log(star1()); // 2494
+console.log(star2()); // 2306
 
 function star1() {
 	const input = document.body.textContent.split('\n');

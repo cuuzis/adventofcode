@@ -1,19 +1,19 @@
-package solutions2020
-
 import scala.annotation.tailrec
 import scala.io.Source
 
 /**
+ * https://adventofcode.com/2020/day/14
+ *
  * functional programming tryout nightmare :)
  */
 object december14 {
 
   def main(args: Array[String]) {
-    val input = Source.fromFile("src/solutions2020/december14.txt")
+    val input = Source.fromFile("2020/december14.txt")
     try {
       val lines = input.getLines().toList
-      println(star1(lines))
-      println(star2(lines))
+      println(star1(lines)) // 11179633149677
+      println(star2(lines)) // 4822600194774
     } finally {
       input.close()
     }

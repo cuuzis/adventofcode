@@ -1,10 +1,12 @@
 import {readFileSync} from 'fs';
 
-
+/**
+ * https://adventofcode.com/2020/day/16
+ */
 const input = readFileSync('./december16.txt', 'utf-8');
 
-console.log(star1());
-console.log(star2());
+console.log(star1()); // 22057
+console.log(star2()); // 1093427331937
 
 function isValid(value: number, rule: { from: number; to: number }[]) {
     for (let condition of rule) {
@@ -18,8 +20,8 @@ function isValid(value: number, rule: { from: number; to: number }[]) {
 function star1() {
     const parts = input.split(/\r?\n\r?\n/)
 
-    const intervals = parts[0]
-        .match(/\d+-\d+/gm)
+    const intervals =
+        (parts[0]?.match(/\d+-\d+/gm) ?? [])
         .map(interval => ({
             from: Number.parseInt(interval.split(/-/)[0]),
             to: Number.parseInt(interval.split(/-/)[1])
@@ -27,7 +29,7 @@ function star1() {
 
     return parts[2]
         .match(/\d+/gm)
-        .map(it => Number.parseInt(it))
+        ?.map(it => Number.parseInt(it))
         .reduce((acc, value) => acc + (isValid(value, intervals) ? 0 : value), 0)
 }
 
@@ -58,25 +60,23 @@ function star2() {
 
     const parts = input.split(/\r?\n\r?\n/)
 
-    const ruleKeys = parts[0].match(/.*:/gm)
+    const ruleKeys = parts[0].match(/.*:/gm) ?? []
+
     const rules: {from: number, to: number}[][] =
         parts[0]
             .split(/\r?\n/)
             .map(ruleStr => ruleStr
-                // remove rule key
-                .match(/\d.*/)[0]
-                // convert to [rule row][rules]
                 .match(/\d+-\d+/g)
-                .map(interval => ({
-                    from: Number.parseInt(interval.split(/-/)[0]),
-                    to: Number.parseInt(interval.split(/-/)[1])
-                })))
+                ?.map(interval => ({
+                    from: Number.parseInt(interval.split(/-/)[0]) ?? -1,
+                    to: Number.parseInt(interval.split(/-/)[1]) ?? -1
+                })) ?? [])
 
     const yourTicket = parseTickets(parts[1])[0]
     const nearbyTickets: number[][] = parseTickets(parts[2])
 
     // find valid columns for rule keys
-    const validColumns = {}
+    const validColumns: any = {}
     for (let ruleIdx = 0; ruleIdx < ruleKeys.length; ruleIdx++) {
         const ruleKey = ruleKeys[ruleIdx]
         const rule = rules[ruleIdx]
@@ -99,33 +99,26 @@ function star2() {
             }
         }
     }
-    // console.log(validColumns)
+    // console.log('Rule possible columns:', validColumns)
 
-    // eliminate keys used in single place
-    let key
     let keysToCheck = ruleKeys
-    do {
-        key = null
-        for (let k of keysToCheck) {
-            if (validColumns[k].length == 1) {
-                key = k
-                break
-            }
-        }
-        if (key != null) {
+    while (true) {
+        const key = keysToCheck.find(k => validColumns[k].length == 1)
+        if (key) {
             keysToCheck = keysToCheck.filter(it => it !== key)
-            for (let k in validColumns) {
-                if (k != key) {
-                    validColumns[k] = validColumns[k].filter(it => it !== validColumns[key][0])
-                }
+            for (const k of keysToCheck) {
+                validColumns[k] = validColumns[k].filter((it: any) => it !== validColumns[key][0])
             }
+        } else {
+            break
         }
-    } while (key != null)
-    // console.log(validColumns)
+    }
+
+    // console.log('Rule assigned columns:', validColumns)
 
     return Object.entries(validColumns)
         .filter(entry => entry[0].startsWith('departure'))
-        .map(entry => entry[1][0])
+        .map(([, second]) => (second as number[])[0])
         .reduce((acc, num) => acc * yourTicket[num], 1)
 }
 

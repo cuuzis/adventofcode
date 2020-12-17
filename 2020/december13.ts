@@ -1,10 +1,12 @@
 import { readFileSync } from 'fs';
 
-
+/**
+ * https://adventofcode.com/2020/day/13
+ */
 const input = readFileSync('./december13.txt', 'utf-8');
 
-console.log(star1());
-console.log(star2());
+console.log(star1()); // 92
+console.log(star2()); // 867295486378319
 
 
 function star1() {
@@ -23,6 +25,7 @@ function star1() {
             leastWaitingBus = bus;
         }
     }
+    if (leastWaitingBus == null || leastWaitingMinutes == null) return -1
     return leastWaitingBus * leastWaitingMinutes;
 }
 
@@ -34,7 +37,7 @@ function star2() {
         .map((bus, idx) => ({id: Number.parseInt(bus), firstDeparture: idx}))
         .filter(it => !isNaN(it.id));
     console.log(buses);
-    
+
     let t = 0;
     let step = 1;
     let depth = 0;
@@ -55,7 +58,7 @@ function star2_bruteForce() {
         .split(',')
         .map((bus, idx) => ({id: Number.parseInt(bus), firstDeparture: idx}))
         .filter(it => !isNaN(it.id));
-    console.log(buses);
+    // console.log(buses);
 
     for (let i = 1; i < Number.MAX_SAFE_INTEGER / (buses[0].id + buses[buses.length-1].id); i++) {
         const t = i * buses[0].id;
