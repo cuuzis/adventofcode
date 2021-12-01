@@ -1,0 +1,22 @@
+{
+  "name": "adventofcode2021",
+  "version": "1.0.0",
+  "description": "Solutions to https://adventofcode.com/2020 Execute with `npm install && npm run dec01`",
+  "scripts": {
+    "dec01": "npx ts-node december01.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuuzis/adventofcode.git"
+  },
+  "author": "Gustavs Venters",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cuuzis/adventofcode/issues"
+  },
+  "dependencies": {
+    "@types/node": "^16.11.11",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  }
+}
