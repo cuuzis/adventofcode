@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Solutions to https://adventofcode.com/2020 Execute with `npm install && npm run dec01`",
   "scripts": {
-    "dec01": "npx ts-node december01.ts"
+    "dec01": "npx ts-node december01.ts",
+    "dec02": "npx ts-node december02.ts"
   },
   "repository": {
     "type": "git",
