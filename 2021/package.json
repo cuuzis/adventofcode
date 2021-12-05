@@ -1,12 +1,13 @@
 {
   "name": "adventofcode2021",
   "version": "1.0.0",
-  "description": "Solutions to https://adventofcode.com/2020 Execute with `npm install && npm run dec01`",
+  "description": "Solutions to https://adventofcode.com/2021 Execute with `npm install && npm run dec01`",
   "scripts": {
     "dec01": "npx ts-node december01.ts",
     "dec02": "npx ts-node december02.ts",
     "dec03": "npx ts-node december03.ts",
-    "dec04": "npx ts-node december04.ts"
+    "dec04": "npx ts-node december04.ts",
+    "dec05": "npx ts-node december05.ts"
   },
   "repository": {
     "type": "git",
