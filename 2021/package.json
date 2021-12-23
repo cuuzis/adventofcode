@@ -17,7 +17,8 @@
     "dec12": "npx ts-node december12.ts",
     "dec13": "npx ts-node december13.ts",
     "dec14": "npx ts-node december14.ts",
-    "dec15": "npx ts-node december15.ts"
+    "dec15": "npx ts-node december15.ts",
+    "dec16": "npx ts-node december16.ts"
   },
   "repository": {
     "type": "git",
